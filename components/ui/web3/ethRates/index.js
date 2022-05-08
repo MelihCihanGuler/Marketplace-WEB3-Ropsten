@@ -61,7 +61,7 @@ export default function EthRates() {
                 layout="fixed"
                 height="35"
                 width="35"
-                src="/img/copper.png"
+                src="/img/Copper.png"
               />
               <span className="text-xl font-bold ml-2">
                 = {copper.data}$
