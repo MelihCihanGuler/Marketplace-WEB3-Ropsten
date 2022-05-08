@@ -30,6 +30,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-# key value json Buraya yazılan değerler git e atıldığında gözükmez
-keys.json
