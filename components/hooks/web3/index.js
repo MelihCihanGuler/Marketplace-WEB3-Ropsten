@@ -1,0 +1,98 @@
+
+import { useHooks } from "@components/providers/web3"
+import { setupHooks } from "@components/providers/web3/hooks/setupHooks"
+import { useRouter } from "next/router"
+import { useEffect } from "react"
+import { useWeb3 } from "@components/providers";
+
+
+const _isEmpty = data => {
+  return( data == null || 
+    data == "" || 
+    (Array.isArray(data) && data.length === 0) || 
+    (data.constructor === Object && Object.keys(data).length === 0))
+}
+
+const enhanceHook = swrRes => {
+  const {data, error} = swrRes
+  const hasInitialResponse = !!(data || error)
+  const isEmpty = hasInitialResponse && _isEmpty(data)
+
+  return {
+    ...swrRes,
+    isEmpty,
+    hasInitialResponse
+  }
+}
+
+export const useAccount = () => {
+  return enhanceHook(useHooks(hooks => hooks.useAccount)())
+}
+
+export const useAdmin = ({redirectTo}) => {
+  const { account } = useAccount()
+  const { provider } = useWeb3()
+  const router = useRouter()
+
+  useEffect(() => {
+    if ((
+      !provider ||
+      !account.hasInitialResponse && !account.isAdmin) ||
+      account.isEmpty) {
+
+      router.push(redirectTo)
+    }
+  }, [account])
+
+  return { account }
+}
+
+export const useNetwork = () => {
+  return enhanceHook(useHooks(hooks => hooks.useNetwork)())
+}
+
+export const useWalletInfo = () => {
+  const {account} = useAccount()
+  const {network} = useNetwork()
+
+  const isConnecting = !account.hasInitialResponse && !network.hasInitialResponse
+
+  return {
+    account,
+    network,
+    isConnecting,
+    hasConnectedWallet: !!(account.data && network.isSupported)
+  }
+}
+
+export const useOwnedCourses = (...args) => {
+  const swrRes = enhanceHook(useHooks(hooks => hooks.useOwnedCourses)(...args))
+  return {
+    ownedCourses: swrRes
+  }
+}
+
+export const useOwnedCourse = (...args) => {
+  const swrRes = enhanceHook(useHooks(hooks => hooks.useOwnedCourse)(...args))
+
+  return {
+    ownedCourse: swrRes
+  }
+}
+
+export const useManagedCourses = (...args) => {
+  const swrRes = enhanceHook(useHooks(hooks => hooks.useManagedCourses)(...args))
+
+  return {
+    managedCourses: swrRes
+  }
+}
+
+// export const useOwnedCourses = () => {
+//   const {web3, provider} = useWeb3()
+//   const res = setupHooks(web3, provider).useOwnedCourses()
+
+//   return {
+//     ownedCourses: {data: res}
+//   }
+// }
