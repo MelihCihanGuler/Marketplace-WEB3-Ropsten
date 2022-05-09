@@ -36,7 +36,7 @@ Create Tailwinde config file: npx tailwindcss init -p
 10)Upload sol files and run truffle migrate 
 
  
-Vercel doesn't let me deploy without keys.json. It's been duplicated and changed deleberately.
+Vercel doesn't let me deploy without keys.json. It's been duplicated and changed deliberately.
 
 Solidity file is included. 
 wEB3-PROVIDER connection is in BaseLayout side which is shared through ContextProvider. 
