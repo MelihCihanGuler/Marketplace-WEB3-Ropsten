@@ -4,29 +4,18 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 You can check the website as below
 
+```bash
 Website Link: https://ropsten-eth-marketplace.vercel.app/
 Web3 website runs in Ropsten Test Network. 
 You can change the network through .env.production file. 
-
+```
 
 First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Learn More
 
+```bash
 Dependecies are mentioned as follows,
 
 1) Project Create --> 
@@ -51,6 +40,8 @@ Vercel doesn't let me deploy without keys.json. It's been duplicated and changed
 
 Solidity file is included. 
 wEB3-PROVIDER connection is in BaseLayout side which is shared through ContextProvider. 
+
+```
 
 ## Deploy on Vercel
 
