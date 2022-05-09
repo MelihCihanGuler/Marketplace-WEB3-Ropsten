@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Website Link: [https://ropsten-eth-marketplace.vercel.app/]
+Website Link: [https://ropsten-eth-marketplace.vercel.app/](https://ropsten-eth-marketplace.vercel.app/)
 
 You can check the website as below
 
