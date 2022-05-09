@@ -2,6 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+You can check the website as below
+
+Website Link: https://ropsten-eth-marketplace.vercel.app/
+Web3 website runs in Ropsten Test Network. 
+You can change the network through .env.production file. 
+
+
 First, run the development server:
 
 ```bash
@@ -20,12 +27,30 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+Dependecies are mentioned as follows,
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1) Project Create --> 
+Create Project for next : npx create-next-app projectname 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2) Download Tailwind.css.
+Command: npm install -D tailwindcss@latest postcss@latest  autoprefixer@latest
+Create Tailwinde config file: npx tailwindcss init -p
+
+3) Create jsconfig.json file for mapping the components.
+
+4) Download react-toastify npm i react-toastify
+5) Download npm i swr
+6) Download DetectProvider npm i @metamask/detect-provider
+7) Download web3: npm install web3 
+8) Download truffle: truffle init 
+9) Download npm i @truffle/hdwallet-provider
+10)Upload sol files and run truffle migrate 
+
+ 
+Vercel doesn't let me deploy without keys.json. It's been duplicated and changed deleberately.
+
+Solidity file is included. 
+wEB3-PROVIDER connection is in BaseLayout side which is shared through ContextProvider. 
 
 ## Deploy on Vercel
 
